@@ -23,11 +23,11 @@ housePriceData2015["HouseConstMedianPrice"] = housePriceData2015["HouseConstMedi
 housePriceData2017["HouseConstMedianPrice"] = housePriceData2017["HouseConstMedianPrice"].astype(float)
 housePriceData2019["HouseConstMedianPrice"] = housePriceData2019["HouseConstMedianPrice"].astype(float)
 # Average values out over a year
-housePriceData2015 = housePriceData2015.groupby(["gbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbzxONSConstID"])["HouseConstMedianPrice"].mean()
+housePriceData2015 = housePriceData2015.groupby(["ONSConstID"])["HouseConstMedianPrice"].mean()
 housePriceData2017 = housePriceData2017.groupby(["ONSConstID"])["HouseConstMedianPrice"].mean()
 housePriceData2019 = housePriceData2019.groupby(["ONSConstID"])["HouseConstMedianPrice"].mean()
 # Convet back to dataframe
-housePriceData2015 = pd.DataFrame(housePriceData2015)dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd000000000000000000000000000000000000000
+housePriceData2015 = pd.DataFrame(housePriceData2015)
 housePriceData2015.reset_index(inplace=True)
 housePriceData2017 = pd.DataFrame(housePriceData2017)
 housePriceData2017.reset_index(inplace=True)
@@ -37,7 +37,7 @@ housePriceData2019.reset_index(inplace=True)
 # Data for House Tenure
 # Extract only the columns we are interested in
 columnsHousingTenure = ["ONSConstID", "ConstituencyName", "CountryID", "CON%Own"]
-housingTenureData = pd.read_csv('C:/Programming/cs350/data/housingTenure.csv', skipinitialspace=T   q````` nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn `c#NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNMVVVVVVVVVVV{@'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''rue, usecols=columnsHousingTenure)
+housingTenureData = pd.read_csv('C:/Programming/cs350/data/housingTenure.csv', skipinitialspace=True, usecols=columnsHousingTenure)
 # Data only from 2011 census so only one data set needed
 
 # Data for Education

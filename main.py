@@ -138,18 +138,15 @@ fullSVMBaseResults.to_csv(r'C:/Programming/cs350/results/fullSVMBaseResults.csv'
 
 
 # # Create clusters and model on each
-# Only consider 2017 due to time constraints
 englandData57 = englandData57[englandData57.Year != 2017]
 xTrain2017 = englandData57.loc[:, [englandData57.columns[1]] + list(englandData57.columns[4:40])].values
 firstClassifierKM = KMeans(init='random', n_init=10, max_iter=300, tol=1e-04, random_state=0)
 
-# k is range of number of clusters.
-# visualizer = KElbowVisualizer(firstClassifierKM, k=(2, 30), timings=True)
-# visualizer.fit(xTrain2017)
-# visualizer.show()
+visualizer = KElbowVisualizer(firstClassifierKM, k=(2, 30), timings=True)
+visualizer.fit(xTrain2017)
+visualizer.show()
 
 classifierKM = KMeans(init='random', n_init=10, n_clusters=6, max_iter=300, tol=1e-04, random_state=0)
-
 clusters = classifierKM.fit_predict(xTrain2017)
 englandData57["Cluster"] = clusters
 
